@@ -26,3 +26,7 @@ body {
   color: #fff;
   box-shadow: 0 4px 0 #2880d9;
 }
+
+#start.disabled {
+  display: none;
+}
