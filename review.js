@@ -1,9 +1,17 @@
 'use strict';
 
 {
-  const start = document.getElementById('start');
 
-  start.addEventListener('click', () => {
-    start.classList.add('disabled');
-  })
+  class Game {
+    constructor(){
+      const start = document.getElementById('start');
+      start.addEventListener('click', () => {
+        start.classList.add('disabled');
+      });  
+    }
+  
+  }
+
+  new Game();
+
 }
