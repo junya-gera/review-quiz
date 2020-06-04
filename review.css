@@ -1,0 +1,28 @@
+body {
+  background-color: #58b4ae;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+}
+
+.container {
+  width: 400px;
+  margin: 8px auto;
+  background-color: #ffe277;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+#start {
+  background-color: #3498db;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 4px 0 #2880d9;
+}
