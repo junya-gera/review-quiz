@@ -38,7 +38,6 @@
 
     }
 
-
     setQuiz() {
       this.question.textContent = this.quiz.quizSet[this.currentNum].q;
     }
