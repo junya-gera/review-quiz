@@ -29,10 +29,12 @@
       const start = document.getElementById('start');
       start.addEventListener('click', () => {
         start.classList.add('disabled');
+
+        this.choices = document.getElementById('choices');
         this.currentNum = 0;
         this.question = document.getElementById('question');
         this.quiz = new Quiz();
-        this.setQuiz();  
+        this.setQuiz();
       });
 
 
@@ -40,7 +42,15 @@
 
     setQuiz() {
       this.question.textContent = this.quiz.quizSet[this.currentNum].q;
+      const shuffledChoices = this.quiz.shuffle([...this.quiz.quizSet[this.currentNum].c]);
+      shuffledChoices.forEach(choice => {
+        const li = document.createElement('li');
+        li.textContent = choice;
+        choices.appendChild(li);
+      });
+
     }
+
   
   
   }
