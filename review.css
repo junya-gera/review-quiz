@@ -58,6 +58,24 @@ body {
   opacity: 0.8;
 }
 
+#choices > li.correct {
+  background-color: red;
+  font-weight: bold;
+}
+
+#choices > li.correct::after{
+  content: '...正解！！';
+}
+
+#choices > li.wrong {
+  background-color: blue;
+  color: #fff;
+}
+
+#choices > li.wrong::after{
+  content: '...外れ！！';
+}
+
 #next {
   cursor: pointer;
   user-select: none;
