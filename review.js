@@ -67,6 +67,14 @@
     }
 
     setQuiz() {
+      this.quiz.isAnswered = false;
+
+      // もし選択肢の1つ目があれば（前の選択肢が残っていれば）
+      // 1つ目の選択肢を消す、これを選択肢がなくなるまでループ
+      while(this.choices.firstChild){
+        this.choices.removeChild(this.choices.firstChild);
+      }
+
       this.question.textContent = this.quiz.quizSet[this.quiz.currentNum].q;
       // シャッフル後の選択肢
       const shuffledChoices = this.quiz.shuffle([...this.quiz.quizSet[this.quiz.currentNum].c]);
@@ -84,6 +92,8 @@
     nextQuiz(){
       if (this.next.classList.contains('answered')){
         this.next.classList.remove('answered');
+        this.quiz.currentNum++;
+        this.setQuiz();
       }
     };
 
