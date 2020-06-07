@@ -27,7 +27,9 @@
     // 選択された選択肢が正解かどうか調べるメソッド
     checkAnswer(li) {
       if (li.textContent === quizSet[currentNum].c[0]){
-        
+        li.classList.add('correct');
+      } else {
+        li.classList.add('wrong');
       }
     }
   }
@@ -35,9 +37,10 @@
   class Game {
     constructor(){
       const start = document.getElementById('start');
+      const next = document.getElementById('next');
       start.addEventListener('click', () => {
         start.classList.add('disabled');
-
+        next.classList.remove('disabled');
         this.choices = document.getElementById('choices');
         // 現在の問題の番号
         this.currentNum = 0;
