@@ -27,6 +27,10 @@ body {
   box-shadow: 0 4px 0 #2880d9;
 }
 
+#start:hover{
+  opacity: 0.8;
+}
+
 .disabled {
   display: none;
 }
@@ -50,10 +54,17 @@ body {
   background-color: #ffb367;
 }
 
+#choices > li:hover{
+  opacity: 0.8;
+}
+
 #next {
   cursor: pointer;
   user-select: none;
   border-radius: 4px;
   padding: 10px;
-  background-color: red;
+  background-color: #ccc;
+  box-shadow: 0 4px 0 #bbb;
+  opacity: 0.8;
+  color: #fff;
 }
