@@ -10,6 +10,7 @@
         {q: 'What is C?', c: ['C0','C1','C2']}
       ]);
       this.currentNum = 0;
+      this.isAnswered = false;
     }
 
     // 選択肢の順番をリセットするメソッド
@@ -27,6 +28,11 @@
 
     // 選択された選択肢が正解かどうか調べるメソッド
     checkAnswer(li) {
+      if (this.isAnswered === true) {
+        return;
+      }
+
+      this.isAnswered = true;
       if (li.textContent === this.quizSet[this.currentNum].c[0]){
         li.classList.add('correct');
       } else {
