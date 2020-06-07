@@ -46,7 +46,9 @@
   class Game {
     constructor(){
       const start = document.getElementById('start');
-      const next = document.getElementById('next');
+      this.next = document.getElementById('next');
+
+      // startを押すとゲーム開始
       start.addEventListener('click', () => {
         start.classList.add('disabled');
         next.classList.remove('disabled');
@@ -57,6 +59,10 @@
         this.setQuiz();
       });
 
+      // nextを押すと次の問題へ
+      next.addEventListener('click', () => {
+        this.nextQuiz();
+      });
 
     }
 
@@ -73,8 +79,13 @@
         })
         choices.appendChild(li);
       });
-
     }
+
+    nextQuiz(){
+      if (this.next.classList.contains('answered')){
+        this.next.classList.remove('answered');
+      }
+    };
 
   
   
