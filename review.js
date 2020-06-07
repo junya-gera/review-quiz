@@ -38,6 +38,8 @@
       } else {
         li.classList.add('wrong');
       }
+
+      next.classList.add('answered');
     }
   }
 

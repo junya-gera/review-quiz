@@ -85,4 +85,11 @@ body {
   box-shadow: 0 4px 0 #bbb;
   opacity: 0.8;
   color: #fff;
+  margin-top: 28px;
+}
+
+#next.answered{
+  background-color: #3498db;
+  box-shadow: 0 4px 0 #2880d9;
+  opacity: 1;
 }
