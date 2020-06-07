@@ -23,6 +23,13 @@
       }
       return arr;
     }
+
+    // 選択された選択肢が正解かどうか調べるメソッド
+    checkAnswer(li) {
+      if (li.textContent === quizSet[currentNum].c[0]){
+        
+      }
+    }
   }
 
   class Game {
@@ -46,9 +53,13 @@
       this.question.textContent = this.quiz.quizSet[this.currentNum].q;
       // シャッフル後の選択肢
       const shuffledChoices = this.quiz.shuffle([...this.quiz.quizSet[this.currentNum].c]);
+
       shuffledChoices.forEach(choice => {
         const li = document.createElement('li');
         li.textContent = choice;
+        li.addEventListener('click', () => {
+          checkAnswer(li);
+        })
         choices.appendChild(li);
       });
 
