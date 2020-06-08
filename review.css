@@ -96,7 +96,7 @@ body {
 
 #result {
   position: absolute;
-  width: 300px;
+  width: 400px;
   background-color: #fff;
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -107,4 +107,5 @@ body {
   border-radius: 4px;
   text-align: center;
   transition: 0.4s;
+  font-size: 24px;
 }
