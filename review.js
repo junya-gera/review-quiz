@@ -85,6 +85,7 @@
         li.textContent = choice;
         li.addEventListener('click', () => {
           this.quiz.checkAnswer(li);
+          // 最後の問題に答えたら「次へ」が「結果を見る」になる
           if (this.quiz.currentNum === this.quiz.quizSet.length - 1){
             this.next.textContent = '結果を見る';
           }
