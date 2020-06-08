@@ -47,6 +47,7 @@
     constructor(){
       const start = document.getElementById('start');
       this.next = document.getElementById('next');
+      this.quiz = new Quiz();
 
       // startを押すとゲーム開始
       start.addEventListener('click', () => {
@@ -55,7 +56,6 @@
         this.choices = document.getElementById('choices');
         // 現在の問題の番号
         this.question = document.getElementById('question');
-        this.quiz = new Quiz();
         this.setQuiz();
       });
 
@@ -63,6 +63,7 @@
       next.addEventListener('click', () => {
         this.nextQuiz();
       });
+
 
     }
 
@@ -84,6 +85,10 @@
         li.textContent = choice;
         li.addEventListener('click', () => {
           this.quiz.checkAnswer(li);
+          if (this.quiz.currentNum === this.quiz.quizSet.length - 1){
+            this.next.textContent = '結果を見る';
+          }
+    
         })
         choices.appendChild(li);
       });
