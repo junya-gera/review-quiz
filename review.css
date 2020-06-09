@@ -18,7 +18,7 @@ body {
   font-size: 32px;
 }
 
-#start {
+#start, .replay {
   background-color: #3498db;
   padding: 8px;
   border-radius: 4px;
@@ -112,4 +112,10 @@ body {
 
 #result.hidden{
   transform: translateY(-500px);
+}
+
+.replay{
+  display: block;
+  text-decoration: none;
+  margin-top: 12px;
 }
