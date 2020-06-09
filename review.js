@@ -108,7 +108,7 @@
 
     showResult(){
       const result = document.getElementById('result');
-      result.classList.remove('disabled');
+      result.classList.remove('hidden');
     }
 
   
