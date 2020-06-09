@@ -12,6 +12,7 @@
       this.currentNum = 0;
       this.isAnswered = false;
       this.point = 0;
+      this.missPoint = 0;
     }
 
     // 選択肢の順番をリセットするメソッド
@@ -39,6 +40,7 @@
         this.point++;
       } else {
         li.classList.add('wrong');
+        this.missPoint++;
       }
 
       next.classList.add('answered');
@@ -111,7 +113,10 @@
     showResult(){
       const result = document.getElementById('result');
       const score = document.getElementById('score');
+      const miss = document.getElementById('miss');
+      
       score.textContent = this.quiz.point;
+      miss.textContent = this.quiz.missPoint;
       result.classList.remove('hidden');
     }
 
