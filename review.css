@@ -109,3 +109,7 @@ body {
   transition: 0.4s;
   font-size: 24px;
 }
+
+#result.disabled{
+  transform: translateY(-500px);
+}
