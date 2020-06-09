@@ -11,6 +11,7 @@
       ]);
       this.currentNum = 0;
       this.isAnswered = false;
+      this.point = 0;
     }
 
     // 選択肢の順番をリセットするメソッド
@@ -35,6 +36,7 @@
       this.isAnswered = true;
       if (li.textContent === this.quizSet[this.currentNum].c[0]){
         li.classList.add('correct');
+        this.point++;
       } else {
         li.classList.add('wrong');
       }
@@ -108,6 +110,8 @@
 
     showResult(){
       const result = document.getElementById('result');
+      const score = document.getElementById('score');
+      score.textContent = this.quiz.point;
       result.classList.remove('hidden');
     }
 
