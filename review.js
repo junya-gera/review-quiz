@@ -45,6 +45,30 @@
 
       next.classList.add('answered');
     }
+
+    resetAnswer(){
+      this.isAnswered = false;
+    }
+
+    getQuestion(){
+      return this.quizSet[this.currentNum].q;
+    }
+
+    getChoices(){
+      return this.shuffle([...this.quizSet[this.currentNum].c]);
+    }
+
+    plusCurrentNum(){
+      this.currentNum++;
+    }
+
+    getPoint(){
+      return this.point;
+    }
+
+    getMissPoint(){
+      return this.missPoint;
+    }
   }
 
   class Timer{
@@ -115,7 +139,7 @@
     }
 
     setQuiz() {
-      this.quiz.isAnswered = false;
+      this.quiz.resetAnswer();
 
       // もし選択肢の1つ目があれば（前の選択肢が残っていれば）
       // 1つ目の選択肢を消す、これを選択肢がなくなるまでループ
@@ -123,9 +147,9 @@
         this.choices.removeChild(this.choices.firstChild);
       }
 
-      this.question.textContent = this.quiz.quizSet[this.quiz.currentNum].q;
+      this.question.textContent = this.quiz.getQuestion();
       // シャッフル後の選択肢
-      const shuffledChoices = this.quiz.shuffle([...this.quiz.quizSet[this.quiz.currentNum].c]);
+      const shuffledChoices = this.quiz.getChoices();
 
       shuffledChoices.forEach(choice => {
         const li = document.createElement('li');
@@ -149,7 +173,7 @@
     nextQuiz(){
       if (this.next.classList.contains('answered')){
         this.next.classList.remove('answered');
-        this.quiz.currentNum++;
+        this.quiz.plusCurrentNum();
         this.setQuiz();
       }
     }
@@ -160,8 +184,8 @@
       const miss = document.getElementById('miss');
       const resultTimer = document.getElementById('resultTimer');
       
-      score.textContent = this.quiz.point;
-      miss.textContent = this.quiz.missPoint;
+      score.textContent = this.quiz.getPoint();
+      miss.textContent = this.quiz.getMissPoint();
       resultTimer.textContent = this.timer.getResultTime();
       result.classList.remove('hidden');
     }  
