@@ -73,6 +73,10 @@
         this.countUp();
       },10);
     }
+
+    stopTimer(){
+      clearTimeout(this.timeoutId);
+    }
   }
 
 
@@ -123,6 +127,7 @@
           this.quiz.checkAnswer(li);
           // 最後の問題に答えたら「次へ」が「結果を見る」になる
           if (this.quiz.currentNum === this.quiz.quizSet.length - 1){
+            this.timer.stopTimer();
             this.next.textContent = '結果を見る';
             this.next.addEventListener('click', () => {
               this.showResult();
