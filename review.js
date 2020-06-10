@@ -47,11 +47,18 @@
     }
   }
 
+
+  class Timer(){
+    
+  }
+
+
   class Game {
     constructor(){
       const start = document.getElementById('start');
       this.next = document.getElementById('next');
       this.quiz = new Quiz();
+      this.timer = new Timer();
 
       // startを押すとゲーム開始
       start.addEventListener('click', () => {
@@ -61,6 +68,7 @@
         // 現在の問題の番号
         this.question = document.getElementById('question');
         this.setQuiz();
+        this.timer.startTimer();
       });
 
       // nextを押すと次の問題へ
@@ -118,11 +126,10 @@
       score.textContent = this.quiz.point;
       miss.textContent = this.quiz.missPoint;
       result.classList.remove('hidden');
-    }
-
-  
+    }  
   
   }
+
 
   new Game();
 
