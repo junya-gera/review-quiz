@@ -49,9 +49,10 @@
 
   class Timer{
     constructor(){
-      this.startTime = undefined;
+      this.startTime = 0;
       this.timer = document.getElementById('timer');
       this.timeoutId = undefined;
+      this.resultTime = "";
     }
 
     startTimer(){
@@ -76,7 +77,13 @@
 
     stopTimer(){
       clearTimeout(this.timeoutId);
+      
     }
+
+    getResultTime(){
+      return this.timer.textContent;
+    }
+
   }
 
 
@@ -151,9 +158,11 @@
       const result = document.getElementById('result');
       const score = document.getElementById('score');
       const miss = document.getElementById('miss');
+      const resultTimer = document.getElementById('resultTimer');
       
       score.textContent = this.quiz.point;
       miss.textContent = this.quiz.missPoint;
+      resultTimer.textContent = this.timer.getResultTime();
       result.classList.remove('hidden');
     }  
   
