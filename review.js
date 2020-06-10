@@ -47,10 +47,34 @@
     }
   }
 
+  class Timer{
+    constructor(){
+      this.startTime = undefined;
+      this.timer = document.getElementById('timer');
+      this.timeoutId = undefined;
+    }
 
-  class Timer(){
-    
+    startTimer(){
+      this.startTime = Date.now();
+      this.countUp();
+
+    }
+
+    countUp(){
+      const d = new Date(Date.now() - this.startTime);
+
+      // padStart 2桁になるまで先頭に0をつける
+      const m = String(d.getMinutes()).padStart(2,'0');
+      const s = String(d.getSeconds()).padStart(2,'0');
+      const ms = String(d.getMilliseconds()).padStart(3,'0');
+
+      this.timer.textContent = `${m}:${s}.${ms}`;
+      this.timeoutId = setTimeout(() =>{
+        this.countUp();
+      },10);
+    }
   }
+
 
 
   class Game {
